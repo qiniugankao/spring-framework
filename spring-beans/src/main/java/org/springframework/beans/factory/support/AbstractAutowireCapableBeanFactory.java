@@ -599,6 +599,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 				logger.trace("Eagerly caching bean '" + beanName +
 						"' to allow for resolving potential circular references");
 			}
+			//工厂方法放入三级缓存
 			addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));
 		}
 
@@ -1357,7 +1358,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	/**
-	 * Populate the bean instance in the given BeanWrapper with the property values
+	 * 填充属性 Populate the bean instance in the given BeanWrapper with the property values
 	 * from the bean definition.
 	 * @param beanName the name of the bean
 	 * @param mbd the bean definition for the bean
